@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <h1>Page Alpha</h1>
+      <h1>Page Alphas</h1>
     </>
   );
 }
