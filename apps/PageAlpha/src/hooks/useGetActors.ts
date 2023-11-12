@@ -3,7 +3,7 @@ import { getActors, Actors,  Config } from 'services';
 
 function useGetActors({ configData }: { configData: Config | undefined }) {
   const BASE_URL = configData?.images?.base_url;
-  const POSTER_SIZE = configData?.images?.poster_sizes[0];
+  const POSTER_SIZE = configData?.images?.poster_sizes[4];
 
   const mapData = (data: Actors) => {
     return data.cast

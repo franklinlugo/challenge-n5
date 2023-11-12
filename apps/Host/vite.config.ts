@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
 import federation from '@originjs/vite-plugin-federation';
 
 export default defineConfig({
@@ -23,6 +24,9 @@ export default defineConfig({
       shared: ['react', 'react-dom'],
     }),
   ],
+  resolve: {
+    alias: [{ find: 'App', replacement: resolve(__dirname, 'src/App') }],
+  },
   build: {
     modulePreload: false,
     target: 'esnext',

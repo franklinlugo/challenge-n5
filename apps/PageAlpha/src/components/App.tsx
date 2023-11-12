@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'ui';
 import withQueryClient from '../withQueryClient';
 import { useGetConfig, useGetActors } from 'hooks';
+import * as S from './App.styles';
 
 function App() {
   const { isLoading, data: configData } = useGetConfig();
@@ -16,17 +17,23 @@ function App() {
 
   return (
     <ThemeProvider>
-      <h1>Harry Potter and the Philosopher's Stone</h1>
-      <button onClick={handleOnClick}>Click me</button>
-      {data?.map((actor: any) => {
-        return (
-          <div key={actor.id}>
-            <img src={actor.profilePath} alt={actor.name} />
-            <h3>{actor.name}</h3>
-            <h4>{actor.character}</h4>
-          </div>
-        );
-      })}
+      <S.AppContainer>
+        <S.AppContainerTitle>Harry Potter and the Philosopher's Stone</S.AppContainerTitle>
+        <S.AppContainerButton onClick={handleOnClick}>Get Actors</S.AppContainerButton>
+        <S.AppContainerActorsList>
+          {data?.map((actor: any) => {
+            return (
+              <S.AppContainerActorsListItem key={actor.id}>
+                <S.AppContainerActorsListItemImg>
+                  <img src={actor.profilePath} alt={actor.name} />
+                </S.AppContainerActorsListItemImg>
+                <S.AppContainerActorsListItemCharacter>{actor.name}</S.AppContainerActorsListItemCharacter>
+                <S.AppContainerActorsListItemRealName>{actor.character}</S.AppContainerActorsListItemRealName>
+              </S.AppContainerActorsListItem>
+            );
+          })}
+        </S.AppContainerActorsList>
+      </S.AppContainer>
     </ThemeProvider>
   );
 }

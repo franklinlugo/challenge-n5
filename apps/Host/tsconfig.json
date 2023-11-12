@@ -1,5 +1,11 @@
 {
   "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "App/*": ["App/*"]
+    }
+  },
   "include": ["src", "@types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

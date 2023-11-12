@@ -10,6 +10,7 @@ export default defineConfig({
     port: 3003,
   },
   preview: {
+    open: false,
     host: 'localhost',
     port: 3003,
     strictPort: true,
