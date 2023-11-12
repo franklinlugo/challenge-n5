@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { ThemeProvider } from 'ui';
+import { useTranslation } from 'react-i18next';
 import withQueryClient from '../withQueryClient';
 import { useGetConfig, useGetActors } from 'hooks';
 import './i18n';
 import * as S from './App.styles';
-import { useTranslation } from 'react-i18next';
 
 interface AppProps {
   lang: 'ES' | 'EN';

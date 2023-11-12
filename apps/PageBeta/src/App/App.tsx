@@ -1,6 +1,9 @@
+import * as React from 'react';
 import { ThemeProvider } from 'ui';
+import { useTranslation } from 'react-i18next';
 import withQueryClient from '../withQueryClient';
 import { useGetConfig, useGetActors } from 'hooks';
+import './i18n';
 import * as S from './App.styles';
 
 interface AppProps {
@@ -10,6 +13,12 @@ interface AppProps {
 function App({ lang }: AppProps) {
   const { isLoading, data: configData } = useGetConfig();
   const { data, refetch } = useGetActors({ configData });
+
+  const { t, i18n } = useTranslation();
+
+  React.useEffect(() => {
+    i18n.changeLanguage(lang);
+  }, [lang]);
 
   const handleOnClick = () => {
     refetch();
@@ -22,8 +31,8 @@ function App({ lang }: AppProps) {
   return (
     <ThemeProvider>
       <S.AppContainer>
-        <S.AppContainerTitle>Van Helsing</S.AppContainerTitle>
-        <S.AppContainerButton onClick={handleOnClick}>Get Actors</S.AppContainerButton>
+        <S.AppContainerTitle>{t('title')}</S.AppContainerTitle>
+        <S.AppContainerButton onClick={handleOnClick}>{t('getActors')}</S.AppContainerButton>
         <S.AppContainerActorsList>
           {data?.map((actor: any) => {
             return (
