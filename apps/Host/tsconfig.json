@@ -6,6 +6,6 @@
       "App/*": ["App/*"]
     }
   },
-  "include": ["src", "@types"],
+  "include": ["src", "@types", "../PageAlpha/src/App/i18n.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

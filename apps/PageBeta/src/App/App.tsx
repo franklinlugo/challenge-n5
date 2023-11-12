@@ -3,7 +3,11 @@ import withQueryClient from '../withQueryClient';
 import { useGetConfig, useGetActors } from 'hooks';
 import * as S from './App.styles';
 
-function App() {
+interface AppProps {
+  lang: 'ES' | 'EN';
+}
+
+function App({ lang }: AppProps) {
   const { isLoading, data: configData } = useGetConfig();
   const { data, refetch } = useGetActors({ configData });
 
