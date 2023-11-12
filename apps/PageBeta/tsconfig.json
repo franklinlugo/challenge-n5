@@ -1,5 +1,13 @@
 {
   "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "App/*": ["App/*"],
+      "services/*": ["services/*"],
+      "hooks/*": ["hooks/*"]
+    }
+  },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

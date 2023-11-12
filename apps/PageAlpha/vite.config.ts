@@ -20,14 +20,14 @@ export default defineConfig({
       name: 'pagealpha',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/components/App',
+        './App': './src/App/App',
       },
       shared: ['react', 'react-dom'],
     }),
   ],
   resolve: {
     alias: [
-      { find: 'components', replacement: resolve(__dirname, 'src/components') },
+      { find: 'App', replacement: resolve(__dirname, 'src/App') },
       { find: 'services', replacement: resolve(__dirname, 'src/services') },
       { find: 'hooks', replacement: resolve(__dirname, 'src/hooks') },
     ],
