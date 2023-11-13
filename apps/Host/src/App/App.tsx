@@ -13,6 +13,11 @@ function App() {
   };
 
   const fallbackRender = () => {
+    /**
+     * For development and challenge purposes
+     * force reload the page when an error occurs on first render when remote pages are still not served
+     *  and avoid reload browser manually
+     */
     location.reload();
     return null;
   };
