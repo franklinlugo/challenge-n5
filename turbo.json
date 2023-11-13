@@ -8,12 +8,11 @@
     "lint": {},
     "dev": {
       "cache": false,
-      "persistent": true
-    },
-    "preview": {
-      "cache": false,
       "persistent": true,
       "dependsOn": ["^build"]
+    },
+    "preview": {
+      "cache": false
     }
   }
 }

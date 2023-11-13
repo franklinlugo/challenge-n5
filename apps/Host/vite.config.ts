@@ -9,6 +9,7 @@ export default defineConfig({
     port: 3001,
   },
   preview: {
+    open: true,
     host: 'localhost',
     port: 3001,
     strictPort: true,

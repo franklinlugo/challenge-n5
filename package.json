@@ -1,19 +1,20 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
-    "preview": "turbo run preview",
-    "preview:watch": "turbo run preview:watch",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prebuild": "turbo run build --filter=pagealpha --filter=pagebeta && turbo run preview& --filter=pagealpha --filter=pagebeta",
+    "build": "turbo run build --filter=host && serve/build/main.js apps/Host/dist"
   },
   "dependencies": {
     "i18next": "^23.7.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-error-boundary": "^4.0.11",
     "react-i18next": "^13.4.0",
     "react-query": "^3.39.3",
+    "serve": "^14.2.1",
     "styled-components": "6.1.1"
   },
   "devDependencies": {
@@ -28,11 +29,11 @@
     "@vitest/coverage-c8": "0.33.0",
     "@vitest/ui": "0.34.6",
     "jsdom": "22.1.0",
+    "msw": "2.0.6",
     "turbo": "1.10.16",
     "typescript": "5.2.2",
     "vite": "4.5.0",
-    "vitest": "0.34.6",
-    "msw": "2.0.6"
+    "vitest": "0.34.6"
   },
   "packageManager": "npm@9.8.1",
   "workspaces": [
