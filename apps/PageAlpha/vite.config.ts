@@ -1,3 +1,6 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
@@ -39,4 +42,10 @@ export default defineConfig({
     cssCodeSplit: false,
   },
   envPrefix: 'CHALLENGE_N5_',
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    css: true,
+    setupFiles: './src/test/setup.ts',
+  },
 });
